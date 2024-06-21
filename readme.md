@@ -3,7 +3,7 @@ Project Overview
 The project aims to analyze a dataset to predict the likelihood of developing asthma based on known factors, including demographic details and lifestyle factors. The team employs two machine learning techniques for this analysis: KNN and logistic regression.
 
 Methodology
-1. K-Nearest Neighbors (KNN): Implement the KNN algorithm, which classifies data points based on their proximity to other points in the dataset.
+1. KNN: Implement the KNN algorithm, which classifies data points based on their proximity to other points in the dataset.
 2. Logistic Regression: Implement the logistic regression model, which predicts the probability of asthma occurrence by modeling the relationship between the dependent variable (asthma presence) and various independent variables (demographic and lifestyle factors).
 
 Rules of Engagement
