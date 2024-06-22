@@ -1,8 +1,7 @@
 # Team Project
 
 ### Video link
-Yuanyuan (Caroline) Zhang
-https://drive.google.com/file/d/1w6S_ISXUlIID1eEA0uiGH29YGZLqPq5u/view?usp=drive_link
+YZ: https://drive.google.com/file/d/1w6S_ISXUlIID1eEA0uiGH29YGZLqPq5u/view?usp=drive_link
 
 ### Description
 
@@ -16,7 +15,9 @@ Use KNN and logistic regression to predict the asthma diagnosis based on known f
 2. observe and describe the dataset
 
 3. preprocess data
+   
 1> drop unnecessary columns
+
 2> analyze and convert categorical value
 how do we process both numerical and categorical predictor values at the same time?
 when do we neeed to standardize the predictor values?
