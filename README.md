@@ -17,4 +17,4 @@ Rules of Engagement:
 8. Continuous improvement in developing the model.
 
   
-Link to video (Kristina Talalaievska): https://drive.google.com/file/d/1YpJATT5cnvVBbK1cX68f8Wd4FgXgr-7P/view?usp=share_link
+Link to video recorede by Kristina Talalaievska: https://drive.google.com/file/d/1YpJATT5cnvVBbK1cX68f8Wd4FgXgr-7P/view?usp=share_link
