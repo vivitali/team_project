@@ -1,8 +1,12 @@
 # Team Project
 
+### video link
+
+
 ### Description
 
 Use KNN and logistic regression to predict the asthma diagnosis based on known factors, such as demographic details and life style factors.
+
 
 ### Steps took to analyse the dataset
 
@@ -28,7 +32,8 @@ most categorical value is coded as binary 0 or 1. two values are assigned intege
 
 7. check the prediction accuracy, use confusion matrix/table
 
-### lession learned:
+
+### Lession learned:
 
 1. How to convert preprocess categorical values regarding data cleaning/preprocess
 how to deal with categorical and ordinal values, 
@@ -40,9 +45,16 @@ Use heatmap we can have a better idea of the most related predictor variables, w
 From the reference link (https://medium.com/analytics-vidhya/machine-learning-2-correlation-matrix-feature-selection-class-imbalance-decision-trees-9a447fdb825), I have learned the way to analyze the correlations for each predictable factors.
 
 3. How to deal with imbalanced dataset
-After inital analysis, I found that the model cannot predict any positive cases, even though the accuracy rate is pretty high at 95%, as a result of all results are predicted as negative.
-The dataset is imperfect to start with. The correlations are not strong, all are below 0.1, most of them are at 0.02 or even lower. There are only 124 positive cases out of the 2400 total records.
-As suggested from the reference link from above, I tried the method of increasint the traning dataset from 80% to 90% or even 95%, but still it has little improvement on the diagnosis result. This leaves room for me to explore more solutions later on. I also understand that not all datasets are perfect.
+   
+- Imbalanced dataset:
+The model cannot predict posistve diagnosis, even thouth the accuracy is high at 95%, mostly due to the predicted result are all negative.
+
+- Reasons:
+It seesm the dataset is imbalanced where there are 124 positive diagnosis of Asthma out of the entire 2400 records.The corelations between predictor variables and target variable are not strong, there is no correlation above 0.1, while the strongest corelation is Exercise Included at 0.05, the 2nd strong correlation is with Chest Tightnesss (0.04), followed by Lung Function FVC (0.030), Wheezing (0.027), Dust Exposure (0.026), Coughing (0.024),Lun Function FEV1 (0.023), Nightime Symptoms (0.021) as well as Ethnicity_3 (0.022). (refere to below table for Correlation to related factors from the analysis)
+
+- Solution:
+I was tring to solve the imbalanced dataset by increasing the traing set from 80% to 90% (or even tried 95%). The result still does not make any imporvement on predicting positve diagnosis. Maybe there are better ways to solve the issue. But due to the time limit of this project, I will deal with it at a later time. Or maybe we can find a better dataset to work on for the next project.
+
 
 4. Communication and engagement with other team members
 Google doc: I created a team project doc on google drive to take notes from our meetings and list the things to do for each member, so that even some members might miss the meeting, all of us can still have a written document to be inline with each other. The document serves as a tracking tool to record the progress of our project and each member's input.
@@ -62,20 +74,6 @@ In this case, changing the method to analyze the dataset, does not really change
 weighted avg       0.91      0.95      0.93       240
 
 
-### video link
-
-
-
-# What insights have been generated from the analysis?
-
-### Imbalanced dataset:
-The model cannot predict posistve diagnosis, even thouth the accuracy is high at 95%, mostly due to the predicted result are all negative.
-
-### Reasons:
-It seesm the dataset is imbalanced where there are 124 positive diagnosis of Asthma out of the entire 2400 records.The corelations between predictor variables and target variable are not strong, there is no correlation above 0.1, while the strongest corelation is Exercise Included at 0.05, the 2nd strong correlation is with Chest Tightnesss (0.04), followed by Lung Function FVC (0.030), Wheezing (0.027), Dust Exposure (0.026), Coughing (0.024),Lun Function FEV1 (0.023), Nightime Symptoms (0.021) as well as Ethnicity_3 (0.022). (refere to below table for Correlation to related factors from the analysis)
-
-### Solution:
-I was tring to solve the imbalanced dataset by increasing the traing set from 80% to 90% (or even tried 95%). The result still does not make any imporvement on predicting positve diagnosis. Maybe there are better ways to solve the issue. But due to the time limit of this project, I will deal with it at a later time. Or maybe we can find a better dataset to work on for the next project.
 
 ### Interpretation of the analysis:
 
@@ -125,5 +123,8 @@ Ethnicity_0            0.011398
 Ethnicity_1            0.001778
 Ethnicity_2            0.005584
 Name: Diagnosis, dtype: float64
+
+
+
 
 
