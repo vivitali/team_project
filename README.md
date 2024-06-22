@@ -1,6 +1,6 @@
 # Team Project
 
-### video link
+### Video link
 
 
 ### Description
@@ -33,7 +33,7 @@ most categorical value is coded as binary 0 or 1. two values are assigned intege
 7. check the prediction accuracy, use confusion matrix/table
 
 
-### Lession learned:
+### Lessons learned:
 
 1. How to convert preprocess categorical values regarding data cleaning/preprocess
 how to deal with categorical and ordinal values, 
