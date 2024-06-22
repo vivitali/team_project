@@ -1,96 +1,71 @@
 # Team Project
 
-## Description
-The team project consists of two modules. Each module requires participants to apply the skills they have learned to date, and explore a dataset of their choosing. The first part of the team project involves creating a simple program with a database in order to analyze a dataset from an open source, such as Kaggle. In the second part of the team project, teams will come together again and apply the skills developed in each of the data science or machine learning foundations certificate streams. Teams will either create a data visualization or a machine learning model.
+### Description
 
-Participants will work in assigned teams of 4-5. 
 
-#### Project Descriptions
+## Project Descriptino:
+Use KNN and logistic regression to predict the asthma diagnosis based on known factors, such as demographic details and life style factors.
 
-* [First Team Project Description](./team_project_1.md)
-* [Second Team Project Description](./team_project_2.md)
+### Steps
 
-## Learning Outcomes
-By the end of Team Project Module 1, participants will be able to:
-* Resolve merge conflicts
-* Describe common problems or challenges a team encounters when working collaboratively using Git and GitHub
-* Create a program to analyze a dataset with contributions from multiple team members
+1. load the dataset
+   
+2. observe and describe the dataset
 
-By the end of Team Project Module 2, participants will be able to:
-* Create a data visualization as a team
-* Create a machine learning model as a team
+3. preprocess data
+1> drop unnecessary columns
+2> analyze and convert categorical value
+how do we process both numerical and categorical predictor values at the same time?
+when do we neeed to standardize the predictor values?
+most categorical value is coded as binary 0 or 1. two values are assigned integer 0 to 3, 'ethnicity' is not ordinal, 'education level' is ordinal.
+- need to convert 4 'ethnicity' values to 4 binary columns
+- education level: 4 values are ordinal, they can stay
+- other binary data can stay as 0 and 1
 
-### Contacts
-**Questions can be submitted to the _#cohort-3-help_ channel on Slack**
 
-* Technical Facilitator: 
-  * **Phil Van-Lane**(he/him)
-  phil.vanlane@mail.utoronto.ca
+4. split datasets into separate training and testing datasets
 
-* Learning Support Staff:
-  * **Taneea Agrawaal** (she/her)
-  taneea@cs.toronto.edu
-  * **Farzaneh Hashemi** (she/her )
-  fhashemi.ma@gmail.com
-  * **Tong Su** (she/her)
-  tong.su@mail.utoronto.ca
+5. standardize the data/ feature scaling
 
-### Delivery of Team Project Modules
+6. fit knn model, using k = square root of n in testing dataset
 
-Each Team Project module will include two live learning sessions and one case study presentation. During live learning sessions, facilitators will introduce the project, walk through relevant examples, and introduce various team skills that support project success. The remaining time will be used for teams to assemble and work on their projects, as well as get help from the facilitator or the learning support to troubleshoot any issues a team may be encountering. 
+7. check the prediction accuracy, use confusion matrix/table
 
-Work periods will also be used as opportunities for teams to collaborate and work together, while accessing learning support. 
+### lession learned:
 
-### Schedule
+1. How to convert preprocess categorical values regarding data cleaning/preprocess
+how to deal with categorical and ordinal values, 
+how to convert categorical and non-ordinal variable to binary values, using one hot encoding
+I have searched the methods of fixing these issues and included them as tips in this document
 
-|Day 1|Day 2|Day 3|Day 4|Day 5|
-|-----|-----|-----|-----|-----|
-|Live Learning Session |Live Learning Session|Case Study|Work Period|Work Period|
+2. How to analyze correlcations between each predictor values and the target value
+Use heatmap we can have a better idea of the most related predictor variables, which facilitates the feature selection process
+From the reference link (https://medium.com/analytics-vidhya/machine-learning-2-correlation-matrix-feature-selection-class-imbalance-decision-trees-9a447fdb825), I have learned the way to analyze the correlations for each predictable factors.
 
-## Requirements
-* Participants are expected to attend live learning sessions and the case study as part of the learning experience. Participants are encouraged to use the scheduled work period time to complete their projects.
-* Participants are encouraged to ask questions and collaborate with others to enhance learning.
-* Participants must have a computer and an internet connection to participate in online activities.
-* Participants must not use generative AI such as ChatGPT to generate code to complete assignments. It should be used as a supportive tool to seek out answers to questions you may have.
-* We expect participants to have completed the [onboarding repo](https://github.com/UofT-DSI/onboarding/tree/main/onboarding_documents).
-* We encourage participants to default to having their camera on at all times, and turning the camera off only as needed. This will greatly enhance the learning experience for all participants and provides real-time feedback for the instructional team. 
+3. How to deal with imbalanced dataset
+After inital analysis, I found that the model cannot predict any positive cases, even though the accuracy rate is pretty high at 95%, as a result of all results are predicted as negative.
+The dataset is imperfect to start with. The correlations are not strong, all are below 0.1, most of them are at 0.02 or even lower. There are only 124 positive cases out of the 2400 total records.
+As suggested from the reference link from above, I tried the method of increasint the traning dataset from 80% to 90% or even 95%, but still it has little improvement on the diagnosis result. This leaves room for me to explore more solutions later on. I also understand that not all datasets are perfect.
 
-### How to get help
-![image](/steps-to-ask-for-help.png)
+4. Communication and engagement with other team members
+Google doc: I created a team project doc on google drive to take notes from our meetings and list the things to do for each member, so that even some members might miss the meeting, all of us can still have a written document to be inline with each other. The document serves as a tracking tool to record the progress of our project and each member's input.
+Slack: we also use slack to communicate after hours for any updates that we made on github.
 
-## Folder Structure
+5. Tried different to solve the issue
+I have used KNN and logistic regression to analyze the dataset, both were using 90% for training set ,10% for testing. The classification report from both analysis is the same.
+In this case, changing the method to analyze the dataset, does not really change the performance of the analysis.
 
-### Project 1
-```markdown
-|-- data
-|---- processed
-|---- raw
-|---- sql
-|-- reports
-|-- src
-|-- README.md
-|-- .gitignore
-```
+          precision    recall  f1-score   support
 
-### Project 2
-```markdown
-|-- data
-|---- processed
-|---- raw
-|---- sql
-|-- experiments
-|-- models
-|-- reports
-|-- src
-|-- README.md
-|-- .gitignore
-```
+           0       0.95      1.00      0.98       229
+           1       0.00      0.00      0.00        11
 
-* **Data:** Contains the raw, processed and final data. For any data living in a database, make sure to export the tables out into the `sql` folder, so it can be used by anyone else.
-* **Experiments:** A folder for experiments
-* **Models:** A folder containing trained models or model predictions
-* **Reports:** Generated HTML, PDF etc. of your report
-* **src:** Project source code
-* README: This file!
-* .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
+    accuracy                           0.95       240
+   macro avg       0.48      0.50      0.49       240
+weighted avg       0.91      0.95      0.93       240
+
+
+### video link
+
+
 
