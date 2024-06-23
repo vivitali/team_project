@@ -1,96 +1,105 @@
 # Team Project
 
-## Description
-The team project consists of two modules. Each module requires participants to apply the skills they have learned to date, and explore a dataset of their choosing. The first part of the team project involves creating a simple program with a database in order to analyze a dataset from an open source, such as Kaggle. In the second part of the team project, teams will come together again and apply the skills developed in each of the data science or machine learning foundations certificate streams. Teams will either create a data visualization or a machine learning model.
+### Video link
+YZ: https://drive.google.com/file/d/1w6S_ISXUlIID1eEA0uiGH29YGZLqPq5u/view?usp=drive_link
 
-Participants will work in assigned teams of 4-5. 
+### Description
 
-#### Project Descriptions
+Use KNN and logistic regression to predict the asthma diagnosis based on known factors, such as demographic details and life style factors.
 
-* [First Team Project Description](./team_project_1.md)
-* [Second Team Project Description](./team_project_2.md)
 
-## Learning Outcomes
-By the end of Team Project Module 1, participants will be able to:
-* Resolve merge conflicts
-* Describe common problems or challenges a team encounters when working collaboratively using Git and GitHub
-* Create a program to analyze a dataset with contributions from multiple team members
+### Steps to analyse the dataset
 
-By the end of Team Project Module 2, participants will be able to:
-* Create a data visualization as a team
-* Create a machine learning model as a team
+1. load the dataset
+   
+2. observe and describe the dataset
 
-### Contacts
-**Questions can be submitted to the _#cohort-3-help_ channel on Slack**
+3. preprocess data
+   
+1> drop unnecessary columns
 
-* Technical Facilitator: 
-  * **Phil Van-Lane**(he/him)
-  phil.vanlane@mail.utoronto.ca
+2> analyze and convert categorical value
+how do we process both numerical and categorical predictor values at the same time?
+when do we neeed to standardize the predictor values?
+most categorical value is coded as binary 0 or 1. two values are assigned integer 0 to 3, 'ethnicity' is not ordinal, 'education level' is ordinal.
+- need to convert 4 'ethnicity' values to 4 binary columns
+- education level: 4 values are ordinal, they can stay
+- other binary data can stay as 0 and 1
 
-* Learning Support Staff:
-  * **Taneea Agrawaal** (she/her)
-  taneea@cs.toronto.edu
-  * **Farzaneh Hashemi** (she/her )
-  fhashemi.ma@gmail.com
-  * **Tong Su** (she/her)
-  tong.su@mail.utoronto.ca
+4. split datasets into separate training and testing datasets
 
-### Delivery of Team Project Modules
+5. standardize the data/ feature scaling
 
-Each Team Project module will include two live learning sessions and one case study presentation. During live learning sessions, facilitators will introduce the project, walk through relevant examples, and introduce various team skills that support project success. The remaining time will be used for teams to assemble and work on their projects, as well as get help from the facilitator or the learning support to troubleshoot any issues a team may be encountering. 
+6. fit knn model, using k = square root of n in testing dataset
 
-Work periods will also be used as opportunities for teams to collaborate and work together, while accessing learning support. 
+7. check the prediction accuracy, use confusion matrix/table
 
-### Schedule
 
-|Day 1|Day 2|Day 3|Day 4|Day 5|
-|-----|-----|-----|-----|-----|
-|Live Learning Session |Live Learning Session|Case Study|Work Period|Work Period|
+### Interpretation of the analysis:
+### Imbalanced dataset:
+The model cannot predict posistve diagnosis, even thouth the accuracy is high at 95%, mostly due to the predicted result are all negative.
 
-## Requirements
-* Participants are expected to attend live learning sessions and the case study as part of the learning experience. Participants are encouraged to use the scheduled work period time to complete their projects.
-* Participants are encouraged to ask questions and collaborate with others to enhance learning.
-* Participants must have a computer and an internet connection to participate in online activities.
-* Participants must not use generative AI such as ChatGPT to generate code to complete assignments. It should be used as a supportive tool to seek out answers to questions you may have.
-* We expect participants to have completed the [onboarding repo](https://github.com/UofT-DSI/onboarding/tree/main/onboarding_documents).
-* We encourage participants to default to having their camera on at all times, and turning the camera off only as needed. This will greatly enhance the learning experience for all participants and provides real-time feedback for the instructional team. 
+### Reasons:
+It seesm the dataset is imbalanced where there are 124 positive diagnosis of Asthma out of the entire 2400 records.The corelations between predictor variables and target variable are not strong, there is no correlation above 0.1, while the strongest corelation is Exercise Included at 0.05, the 2nd strong correlation is with Chest Tightnesss (0.04), followed by Lung Function FVC (0.030), Wheezing (0.027), Dust Exposure (0.026), Coughing (0.024),Lun Function FEV1 (0.023), Nightime Symptoms (0.021) as well as Ethnicity_3 (0.022). (refere to below table for Correlation to related factors from the analysis)
 
-### How to get help
-![image](/steps-to-ask-for-help.png)
+### Solution:
+I was tring to solve the imbalanced dataset by increasing the traing set from 80% to 90% (or even tried 95%). The result still does not make any imporvement on predicting positve diagnosis. Maybe there are better ways to solve the issue. But due to the time limit of this project, I will deal with it at a later time. Or maybe we can find a better dataset to work on for the next project.
 
-## Folder Structure
+### Correlations analysis
 
-### Project 1
-```markdown
-|-- data
-|---- processed
-|---- raw
-|---- sql
-|-- reports
-|-- src
-|-- README.md
-|-- .gitignore
-```
+Most important factor:
+Among all the predictor values, Exercise Induced variable has the strongest correlation with the diagnosis. Exercise-induced asthma is when the airways narrow or squeeze during hard physical activity. It causes shortness of breath, wheezing, coughing, and other symptoms during or after exercise. (reference: https://www.mayoclinic.org/diseases-conditions/exercise-induced-asthma/symptoms-causes/syc-20372300). This shows that exercise seems to be a contributing factor to induce Asthma.
 
-### Project 2
-```markdown
-|-- data
-|---- processed
-|---- raw
-|---- sql
-|-- experiments
-|-- models
-|-- reports
-|-- src
-|-- README.md
-|-- .gitignore
-```
+Other related factors:
+Most of the related factors are symptom related, such as Gastroesophageal Reflux, Wheezing, Chset Tightness, Couphing, Nighttime Symptoms. Some related factores are based on medical exams, such as Lung function FEV1 and Lung Function FVC.
 
-* **Data:** Contains the raw, processed and final data. For any data living in a database, make sure to export the tables out into the `sql` folder, so it can be used by anyone else.
-* **Experiments:** A folder for experiments
-* **Models:** A folder containing trained models or model predictions
-* **Reports:** Generated HTML, PDF etc. of your report
-* **src:** Project source code
-* README: This file!
-* .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
+Demographic factors:
+Demographic details have lower correlations (below 0.02) to the diagnosis (Age has a 0.015 correlation, Gender has little correlation at 0.003), except that Ethnicity_3 has a stronger correlation 0.022. We need the interpretations on what the Ethnicity_3 entails, as this indicates the Ethnicity value equals 3 from the orignial dataset. Once we know what Ethnicity 3 represents, we would have a better idea about the analysis.
+
+Education and lifestyle factors:
+We also understands that the educaiton level or lifestyle factors (BMI, Physical Activity, Diet Quality, Pollution Exposure), have little correlations (below 0.02) to the diagnosis,  except that Dust Exposure has a relatively stronger correlation 0.026, Smoking has a slightly strong correlation 0.019, followed by Sleep Quality at 0.018, Pollen Exposure at 0.015.
+
+Medical symptons and history:
+Some medical symptoms or medical history, such as Family History of Asthma, History of Allergies, Eczema, seem to have little correlation on the diagnosis, except that Hay Fever has a slightly strong correlation 0.019, followed by shortness of breath at 0.015, Pet Allergy at 0.013.
+
+
+#### Correlations to related factors from the analysis:
+
+DustExposure              0.025972
+GastroesophagealReflux    0.022770
+LungFunctionFEV1          0.023336
+LungFunctionFVC           0.029629
+Wheezing                  0.027197
+ChestTightness            0.039278
+Coughing                  0.024193
+NighttimeSymptoms         0.021965
+ExerciseInduced           0.053956
+Ethnicity_3               0.022309
+
+#### Correlations to other factors from the analysis:
+
+Age                    0.015111
+Gender                 0.003128
+EducationLevel         0.008185
+BMI                    0.012522
+Smoking                0.019321
+PhysicalActivity       0.005066
+DietQuality            0.003149
+SleepQuality           0.018022
+PollutionExposure      0.004535
+PollenExposure         0.015099
+PetAllergy             0.013078
+FamilyHistoryAsthma    0.001334
+HistoryOfAllergies     0.001951
+Eczema                 0.008592
+HayFever               0.019141
+ShortnessOfBreath      0.015281
+Ethnicity_0            0.011398
+Ethnicity_1            0.001778
+Ethnicity_2            0.005584
+Name: Diagnosis, dtype: float64
+
+
+
+
 
