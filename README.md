@@ -101,6 +101,7 @@ Name: Diagnosis, dtype: float64
 
 
 
+
 ### Video Link:
 Jinrong Liu: https://vimeo.com/965691090
 
@@ -121,13 +122,13 @@ Before working on the project, we made our team's Rules of Engagement. The detai
 
 Our team wanted to know which model or models fit the dataset, so we used different models to test the dataset. For my part, I used a Multilinear regression model. The model failed as I got the negative number of R-squared. After a discussion with team members, I realized the big mistake was because the dataset was based on classification rather than numbers. Thus, I am continuing to use the model that fits for classification. I tested the three models: Random Forest, SVM(Support Vector Machine), and KNN (K-Nearest Neighbors).
 
-# Random Forest
+Random Forest
 I used the model of Random Forest to test how the model fits the dataset. However, I  did not achieve an excellent accuracy result. The accuracy rate of the model is 91.2317%. The overall result is good, but the model has an important disadvantage. The model is imbalancing as the F1-score is 0.95, and the supported data is 454 for class 0 (male); whereas there is only 0.09 of F1-score and the supported data is 25 for class 1 (female).
 
 SVM (Support Vector Machine)
 After realizing the Random Forest Model's shortcomings, I decided to use an SVM (Support Vector Machine). The overall result is evenly poorer than the first model. The F1 Score of the model is 0.68, and the supported data is 681 for class 0. For class 1, the F1 Score is 0.09, and the supported data is 37. Additionally, the ROC AUC Score of the model is 0.5281. In other words, the model is still not as good as we expected.
 
-# K-Nearest Neighbors
+K-Nearest Neighbors
 Due to the limited time, I decided to try the final model- KNN, which i have leared from class. Surprisingly, the result is better than the first two models. The overall result is 94.0114%, and other factors (Mean, Standard deviation, quartiles) look good. As a result, I decided to use KNN to conduct the statistical analysis.
 
 ## Project analysis
