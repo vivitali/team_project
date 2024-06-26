@@ -118,7 +118,7 @@ Before working on the project, we made our team's Rules of Engagement. The detai
 5. We are always welcoming any developments and suggestions, and everyone is responsible for these developments and improvements during the working period;
 5. Everyone needs to engage each allocation and be able to fully complete all allocation works.
 
-## Project process
+## Project Process
 
 Our team wanted to know which model or models fit the dataset, so we used different models to test the dataset. For my part, I used a Multilinear regression model. The model failed as I got the negative number of R-squared. After a discussion with team members, I realized the big mistake was because the dataset was based on classification rather than numbers. Thus, I am continuing to use the model that fits for classification. I tested the three models: Random Forest, SVM(Support Vector Machine), and KNN (K-Nearest Neighbors).
 
@@ -131,7 +131,7 @@ After realizing the Random Forest Model's shortcomings, I decided to use an SVM 
 K-Nearest Neighbors
 Due to the limited time, I decided to try the final model- KNN, which i have leared from class. Surprisingly, the result is better than the first two models. The overall result is 94.0114%, and other factors (Mean, Standard deviation, quartiles) look good. As a result, I decided to use KNN to conduct the statistical analysis.
 
-## Project analysis
+## Project Analysis
 
 PatientID:
 The PatientID ranges from 5034 to 7425, with a standard deviation suggesting a spread of IDs. All IDs are unique as the count matches the number of rows.
@@ -170,7 +170,7 @@ Lung Function (FEV1 and FVC):
 Both Forced Expiratory Volume in 1 second (FEV1) and Forced Vital Capacity (FVC) show a wide range in values, suggesting variability in lung function among the participants. The means (about 2.55 for FEV1 and 3.74 for FVC) along with their standard deviations (about 0.86 for FEV1 and 1.30 for FVC) indicate diverse respiratory health statuses.
 
 
-## Project results
+## Project Results
 
 Demographic Diversity:
 The dataset spans a wide age range from 5 to 79 years, with an average age around 42 years, indicating a diverse demographic that includes children, adults, and the elderly. The standard deviation in age suggests a broad representation across different life stages.
