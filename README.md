@@ -22,8 +22,11 @@ The project aims to analyze a dataset to predict the likelihood of developing as
  6. Transparency in sharing ideas openly.
  7. Supporting each other and clarifying if one of the team members has difficulties in understanding the project process.
  8. Continuous improvement in developing the model.
- 
-YZ: https://drive.google.com/file/d/1w6S_ISXUlIID1eEA0uiGH29YGZLqPq5u/view?usp=drive_link
+
+
+### Video link
+
+Yuanyuan (Caroline) Zhang: https://drive.google.com/file/d/1w6S_ISXUlIID1eEA0uiGH29YGZLqPq5u/view?usp=drive_link
 
 ### Description
 
