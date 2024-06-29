@@ -53,3 +53,5 @@ Evaluate the model's performance using appropriate metrics.
 [Video link for Adithya's learnings and experience for team project 1](https://www.loom.com/share/24b9fa14082f42b899b8e828dc705f15?sid=562ceb01-8fb0-46f7-95d7-afc0125a927b)
 
 [Vitalii Vasinkevych Video link](https://www.loom.com/share/aaef59d7f5fd415790ce30a28ce291a7?sid=f660e06c-f780-4946-9861-89d28c4be902)
+
+[Amrit Mehta's Video Link](https://www.loom.com/share/df4a8d0daf3640809baf655a4775c3b5?sid=89b28141-149c-484f-ae28-0a866586ea2c)
