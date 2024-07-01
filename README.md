@@ -214,3 +214,14 @@ A small proportion of the dataset indicates issues like smoking and gastroesopha
 
 In summary, the dataset provides an adequent foundation for analyzing health and lifestyle correlations, demographic impacts on health, and the possiblity to find the best fit model in the future.
 
+### Video link
+
+Anna Zheng: https://drive.google.com/file/d/14VACegJThk3TINtBU4Y1W-bm6HeDQFIv/view?usp=drive_link
+
+### Description
+
+This project aims to analyze asthma data set and to use the dataset to train a model to predict if a patient has asthma. 
+
+
+### Methodologies used:
+Split the data into training set and test set to train a KNN model and to view the accuracy score. Started with checking if the gender, age, education levels are skewed by data visualizing and then fit the model. The accuracy score is pretty satisfying with KNN.
